@@ -42,38 +42,64 @@ function sum_ten($a, $b, $c, $d, $e, $f, $g, $h, $i, $j)
 
 }
 
-function makeNumDropdown($number, $count)
+function makeNumDropdown($label, $name, $defaultvalue, $maxvalue, $suffix)
 {
-    echo "Number $number: ";
-    echo "<select name=\"number$number\" id=\"number$number\">";
+    echo "<label>$label$suffix: ";
+    echo "<select name='$name$suffix' id='$name$suffix'>";
 
-    for ($n_option = 0; $n_option <= $count; $n_option++) {
-        echo "<option value=$n_option>$n_option</option>";
+    for ($n_option = 0; $n_option <= $maxvalue; $n_option++) {
+        echo "<option value=$n_option";
+        if (isset($_POST["$name$suffix"]) && $_POST["$name$suffix"] == $n_option) {
+            echo " selected>$n_option (selected)";
+        } elseif ($n_option == $defaultvalue) {
+            echo " selected>$n_option (default)";
+        } else {
+            echo ">$n_option";
+        }
+        echo "</option>";
     }
-    echo "</select>";
+    echo "</label></select>";
 }
 
 function makeTable($row, $col)
 {
-    echo "Rows: $row";
+
+    // Passos: Makes no sense to check isset from within function if haven't already received vars
+    /*     echo "Rows: ";
+    if (isset($_POST["row"])) {
+    echo "$row";
+    } else {
+    $row = 0;
+    }
     echo "<br>";
     echo "Columns: $col";
-    echo "<br><br>";
+    if (isset($_POST["col"])) {
+    echo "$col";
+    } else {
+    $col = 0;
+    } */
 
     echo "<table border=2 width='100%'>";
     while ($row > 0) {
-        echo "<tr>";
+        echo "
+            <tr>
+            ";
+        $tempcol = $col;
 
-        while ($col > 0) {
+        while ($tempcol > 0) {
             echo "
-                    <td>
-                    </td>   
-                ";
-
-            $col = $col - 1;
+                <td>
+                ROW: $row
+                <br>
+                COL: $tempcol
+                </td>   
+            ";
+            $tempcol = $tempcol - 1;
         }
 
-        echo "</tr>";
+        echo "
+            </tr>
+            ";
 
         // With this, no need to initialize extra variable to track
         $row = $row - 1;
@@ -119,9 +145,6 @@ function makeNumDropdownForm($label, $name, $selectcount, $optionmax)
         echo '</select>';
         echo '<br>';
     }
-
-    // Deleting average, sum, submit button generation; reverting to generic number selector
-    /*
     // Do average, sum operation
     if (isset($_POST["number1"])) {
         // TODO: Dynamically echo number vars instead of hardcoding.
@@ -142,7 +165,7 @@ function makeNumDropdownForm($label, $name, $selectcount, $optionmax)
         }
     }
 
-    if (isset($_POST["number1"])) {
+    /*    if (isset($_POST["number1"])) {
     // WIP: Dynamically add number variables to echo instead of hardcoding.
     echo "<br>";
     echo "Numbers received: $numberlist";
@@ -166,14 +189,12 @@ function makeNumDropdownForm($label, $name, $selectcount, $optionmax)
     echo '<br>';
     echo '<button type=submit name="do" value="doaveragesum">Average & Sum</button>';
     echo '<br>';
-    
-
     echo '<br>';
+    */
     // TODO: Make reset button clear input from dropdowns, changing to zero.
     echo '<input type=submit>';
     echo '<input type=reset>';
     echo '</form>';
-    */
 }
 
 
