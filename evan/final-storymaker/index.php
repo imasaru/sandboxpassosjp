@@ -8,7 +8,7 @@
     <title>Choose Your Own Story</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+</head>
 <body>
     <div class="container">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -30,7 +30,8 @@
     <h1>Choose Your Own Story</h1>
     <h5>The thing that Passos was talking about.</h5>
 
-    <?php if ($storynum == 0) { ?>
+    <!-- Story name in dropdown is pulled from story file -->
+    <?php if ($story == 0) { ?>
         <form method="post">
             <label>Story:
                 <select name="storynum">
@@ -46,12 +47,15 @@
 
         </form>
     <?php } else {
+
+        // Display story text
+        displayStorySimple($story, $storynum);
+
+        // Display story options
+        displayStoryOptions($story, $storynum);
     }
     ?>
 
-    <?php
-    insertStory($storynum, $story0);
-    ?>
     </div>
 </body>
 
