@@ -1,0 +1,12 @@
+Bob decides to invest in Steve.
+<br><br>
+Taking it upon himself to mature the boy, Bob showed Steve the importance of education and how it can deliver Steve his desired future.
+<br><br>
+Finally, he offered to assign him extra homework and mentor him individually after class to catch up with his peers.
+<br><br>
+
+Steve, what will you do?
+
+<br><br>
+<a href="?story=3" type="button" class="btn btn-outline-success">Do Bob's homework</a>
+<a href="?story=4" type="button" class="btn btn-outline-danger">Forsake Bob</a>
