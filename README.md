@@ -6,7 +6,7 @@ Anderson PASSOS, Ph.D.の指導の下で、[passos lab (Passos研究室)](https:
 
 ## Projects List
 
-| 📁 Project                              | 🎓 Class | 💻 Programming Language | 📍 Location                                       |
+| 📁 Project                              | 🎓 Class | 💻 Language | 📍 Location                                       |
 | -------------------------------------- | ------- | ---------------------- | ------------------------------------------------ |
 | StoryMaker - Choose Your Own Adventure | IDS313  | PHP                    | [muir.jp/storymaker](https://muir.jp/storymaker) |
 | Form Generator                         | IDS313  | PHP                    | To Be Uploaded・公開予定                         |
