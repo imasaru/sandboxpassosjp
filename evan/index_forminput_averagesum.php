@@ -29,7 +29,7 @@ if (!empty($_POST)) {
 <?php
 
 if (isset($_POST["number1"])) {
-//  echo "SET";
+    //  echo "SET";
     $number1 = $_POST["number1"];
     $number2 = $_POST["number2"];
     $number3 = $_POST["number3"];
@@ -41,7 +41,7 @@ if (isset($_POST["number1"])) {
     $number9 = $_POST["number9"];
     $number10 = $_POST["number10"];
 } else {
-//  echo "NOTSET";
+    //  echo "NOTSET";
     $number1 = 0;
     $number2 = 0;
     $number3 = 0;
